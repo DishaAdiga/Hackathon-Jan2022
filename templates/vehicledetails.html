@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{%static 'styles/login.css'%}">
+  </head>
+  <body>
+    <div class="center">
+      <h1>Vehicle Details</h1>
+      <form method="POST" action="vehicleDetails">{% csrf_token %}
+        <div class="txt_field">
+          <input type="text" , name="vno" autocomplete="off">
+          <span></span>
+          <label>Vehicle No</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" , name="vtype" autocomplete="off">
+            <span></span>
+            <label>Vehicle Type</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" , name="vseats" autocomplete="off">
+            <span></span>
+            <label>No of seats</label>
+        </div>
+
+        <div class="txt_field">
+            <input type="text" , name="vcontact" autocomplete="off">
+            <span></span>
+            <label>Contact</label>
+        </div>
+
+        
+        <input type="submit", value="Submit">      
+      </form>
+    </div>
+    <div>
+      {%for message in messages %}
+      <h3> {{message}}</h3>
+      {% endfor %}
+    </div>
+    
+  </body>
+</html>

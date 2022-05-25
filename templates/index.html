@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Important to make a website responsive-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>CMRIT SMART COMMUTE</title>
+
+    <!-- Link the css file-->
+    <link rel="stylesheet" href="{%static 'styles/index.css'%}">
+</head>
+<body>
+    <section class="navigation">
+        <div class="container">
+            <div class="Menu text-right">
+                <ul>
+                    <li>
+                        <a href="index">Home</a>
+                    </li>
+                    <li>
+                        <a href="register">Register</a>
+                    </li>
+                    <li>
+                        <a href="login">Login</a>
+                    </li>
+                    <li>
+                        <a href="clogin">clogin</a>
+                    </li>
+                    <li>
+                        <a href="cregister">cregister</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>  
+    <style>
+        body {
+          background-image: url('cmrit-pic.jpeg');
+          background-repeat: no-repeat;
+          background-size: 100% 50%;
+        }
+        </style>
+    <!-- Begin Title -->
+    <section class="home text-center">
+        <div class="container">
+            <h2 class="text-center" color="grey">CMRIT SMART COMMUTE</h2>
+        </div>
+    </section>  
+    <!-- End Title -->
+
+    <!-- Begin search section-->
+    <section class="search text-center">
+        <div class="container">
+        <form action=" " method="POST">
+            <input type="search" name="search" size= "50" placeholder="Type here to search" required>
+            <input type="submit" name="submit" value="Search" class="button">
+        </form>
+    </div>
+    <!-- End search section-->
+
+    <!-- Begin nav section-->
+   
+    <!-- End nav section-->
+
+    <!-- Begin about section -->
+    <section class="about">
+        <div class="container">
+            <h2 class="text-center">ABOUT</h2>
+
+            <div class="icon-box">
+                <div class="icon">
+                    <img src="{% static 'images/icon.jpg' %}" alt="about" class="img-responsive">
+                </div>
+                <div class="description">
+                    <p class="desc">
+                        Established in 2000, the CMR Institute of Technology imparts quality, pragmatic education in engineering and management to help students hone their analytical abilities and develop their creative thinking skills. CMRIT meets the rapidly growing need for technology professionals by nurturing young minds in an innovative and progressive learning environment. Situated in the very heart of South India’s IT corridor, the CMRIT campus in Whitefield, Bangalore is centrally located, well connected and easily accessible.
+
+
+                    </p>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </section>
+    <!-- End about section-->
+
+    <!-- Begin social media section-->
+    <section class="social">
+        <div class="container text-center">
+            <ul>
+                <li>
+                    <a href= "#"><img src="https://img.icons8.com/cute-clipart/64/000000/facebook.png"/></a>
+                </li>
+                <li>
+                    <a href= "#"><img src="https://img.icons8.com/cute-clipart/64/000000/instagram-new.png"/></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- End social media section-->
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>customer Routes</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmL.cssASjC" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles/trip_routes.css'%}">
+	<script>
+      var date = new Date();
+      var todayDate = String(date.getDate()).padStart(2,'0');
+      var month = String(date.getMonth()+1).padStart(2,'0');
+      var year = date.getFullYear();
+      document.getElementById("date").value=year+'-'+month+'-'+todayDate;
+    </script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="chome">Carshare</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav d-flex ms-auto mb-2 mb-lg-1">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">FeedBack</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Upcoming Trips</a>
+	        </li>
+	        <li class="nav-item">
+	          <button type="button" class="btn btn-outline-danger">Logout</button>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+
+	<h1 class="text-center">My Trip Route</h1>
+
+		<div class="container px-0">
+  			<div class="row gx-0">
+    			<div class="col">
+					<div class= "box col-lg-8 col-md-6 col-sm-10">
+						<form method='POST' action="tocmrit">{% csrf_token %}
+							<p>Select your destination:</p>
+							<fieldset disabled>
+								<div class="mb-3">
+							      <select id="disabledSelect" class="form-select">
+							        <option>CMRIT</option>
+							      </select>
+							    </div>
+							</fieldset>
+							<br>
+							<div>
+								<p>Choose the date of the trip:</p>
+								<input type="date" name="date" id="date" class="form-control"/>
+								<br>
+								</div>
+								<br>
+								<h2>Select your PickUp Location!</h2>
+								<p>Choose your PickUp:</p>
+								<select class="form-select" aria-label="Default select example" name="location">
+							  		<option selected>Choose your PickUp</option>
+							  		{%for location,id in val %}
+                                    
+                                    	<option value={{id}}>{{location}}</option>
+
+                                	{% endfor %}
+								</select>
+								<br>
+								<input type="submit", value="submit"> 
+						</form>
+					</div>
+		    	</div>
+                
+			    <div class="col">
+                    <h3>Aavailable trips</h3>
+				    <table class="table table-striped">
+					  <thead class="table-dark">
+					    <tr>
+					      <th scope="col">Name</th>
+					      <th scope="col">Car</th>
+						  <th scope="col">Date</th>
+					      <th scope="col">Time of departure</th>
+						  <th scope="col">location</th>
+					      <th scope="col">Price</th>
+					      <th scope="col">Send Req</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+						{%for time,name,ctype,date in auxi %}
+						<form method="POST" action="reqp">{% csrf_token %}
+							<tr>
+							  
+							  <td><input type="text" name="name" value={{name}} autocomplete="off"  ></td>
+							  <td><input type="text" name="ctype" value={{ctype}} autocomplete="off"  ></td>
+							  <td><input type="text" name="date" value={{date}} autocomplete="off"  ></td>
+							  <td><input type="text" name="time" value={{time}} autocomplete="off"  ></td>
+							  <td><input type="text" name="location" value={{location}} autocomplete="off"  ></td>
+							  <td><input type="text" name="price" value={{price}} autocomplete="off"  ></td>
+	
+	
+							  <td><input type="submit" value="sendreq"></td>
+							</tr>
+						</form>
+						{% endfor %}
+					    
+					  </tbody>
+					</table>
+			    </div>
+  			</div>
+		</div>
+
+		
+
+
+	
+	
+	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

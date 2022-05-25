@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmL.cssASjC" crossorigin="anonymous">
+	<link rel="stylesheet"  href="{%static 'styles/home.css'%}">
+	<title>Owner Dashboard</title>
+</head>
+<body>
+	<div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">CarShare</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav d-flex ms-auto mb-2 mb-lg-1">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">FeedBack</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="vehicleDetails">Add Vehicle</a>
+        </li>
+       
+
+        <li class="nav-item">
+          <a type="button" class="btn btn-outline-danger" href="index">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+	</div>
+
+<div>
+	<h2>Welcome To CarShare!</h2>
+			<div class="container d-none d-xl-block">
+				<div class="card sidebar" style="width: 18rem; height: 33rem;">
+				  <div class="card-body ">
+				  	<img src="/static/images/no_img.jpg">
+				    <div class="card-text">Vehicle NO: {{vno}}</div>
+				    <div class="card-text">Vehicle Type: {{vtype}}</div>
+				    <div class="card-text">Phone No: {{contact}}</div>
+				    <div class="card-text">No. of Seats:{{seats}}</div>
+				  </div>
+				</div>
+			</div>
+
+
+		<div class="container-fluid">
+			<div class="row row-cols-1 row-cols-md-3 mb-3">
+				<div class="card col-md-12 col-sm-12" style="width: 19rem;">
+			  <img src="/static/images/my_trips.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			    <h5 class="card-title">My Trips</h5>
+			    <p class="card-text">Select your trips to and from CMRIT</p>
+			    <a href="otrip" class="btn btn-primary" >Offer a Ride!</a>
+			  </div>
+			</div>
+
+			<div class="card" style="width: 19rem;">
+			  <img src="/static/images/req.jpg" class="card-img-top" alt="...">
+			  <div class="card-body">
+			    <h5 class="card-title">Ride Requests</h5>
+			    <p class="card-text">Manage Requests from Commuters for your Trips</p>
+			    <a href="ownerequest" class="btn btn-primary">Look at Requests</a>
+			  </div>
+			</div>
+
+			<div class="card" style="width: 19rem;">
+			  <img src="/static/images/rep_icon.png" class="card-img-top" alt="...">
+			  <div class="card-body">
+			    <h5 class="card-title">History</h5>
+			    <p class="card-text">Look at all your Previous Trips</p>
+			    <a href="ownerhistory" class="btn btn-primary">Show History</a>
+			  </div>
+			</div>
+			</div>
+	</div>
+	
+</div>
+		
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="">
+	<title>Payment</title>
+	<style type="text/css">
+		.box{
+			margin-left: 50px;
+			margin-right: 50px;
+		}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <div class="container-fluid">
+	    <a class="navbar-brand" href="#">Carshare</a>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav d-flex ms-auto mb-2 mb-lg-1">
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">FeedBack</a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link active" aria-current="page" href="#">Upcoming Trips</a>
+	        </li>
+	        <li class="nav-item">
+	          <button type="button" class="btn btn-outline-danger">Logout</button>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<br>
+
+
+
+	<div class="container">
+		<div class="box">
+			<h1 class="text-center" style="padding-bottom: 10px;">Make Payment for your Trip!</h1>
+			<h4>Choose your method of payment:</h4>
+			<form>
+			<div class="col-lg-8">
+				<select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+			  <option selected>Choose A Method To Pay</option>
+			  <option value="1">Credit Card</option>
+			  <option value="2">Debit Card</option>
+			  <option value="3">Bank Transfer</option>
+			  <option value="3">UPI</option>
+			</select>
+			</div>
+			<br>
+			<h4>Enter Your Card Details:</h4>
+			<div class="col-lg-8">
+				<span class="input-group flex-nowrap">
+			  <span class="input-group-text" id="addon-wrapping">Name</span>
+			  <input type="text" class="form-control" placeholder="Full Name" aria-label="Card Number" aria-describedby="addon-wrapping">
+			</div>
+			<br>
+			<div class="col-lg-8">
+				<span class="input-group flex-nowrap">
+			  <span class="input-group-text" id="addon-wrapping">Card Number</span>
+			  <input type="text" class="form-control" placeholder="card number" aria-label="Card Number" aria-describedby="addon-wrapping">
+			</div>
+			<br>
+			<div class="col-lg-8">
+			<div class="input-group mb-3">
+				<span class="input-group-text" style="padding-right: 10px;">Exp Date</span>
+			  <input type="text" class="form-control" placeholder="exp date" aria-label="Username">
+			  <span style="color: white;">space</span>
+			  <span class="input-group-text">CVV</span>
+			  <input type="text" class="form-control" placeholder="CVV" aria-label="Server">
+			</div>
+			<div class="col-lg-8">
+				<span class="input-group flex-nowrap">
+			  <span class="input-group-text" id="addon-wrapping">Amount</span>
+			  <input type="text" class="form-control" placeholder="Amount" aria-label="Card Number" aria-describedby="addon-wrapping">
+			</div>
+			<br>
+			<div class="justify-content-center">
+				<div class="d-grid gap-2 col-6 mx-auto">
+  					<button class="btn btn-primary" type="button">Make Payment</button>
+ 				</div>
+			</div>
+			</form>
+			<br>
+			<h2 class="text-center">Thank You!</h2>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

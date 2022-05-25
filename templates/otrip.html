@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Trip Routes</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmL.cssASjC" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="{%static 'styles/trip_routes.css'%}">
+	<script>
+      var date = new Date();
+      var todayDate = String(date.getDate()).padStart(2,'0');
+      var month = String(date.getMonth()+1).padStart(2,'0');
+      var year = date.getFullYear();
+      document.getElementById("date").value=year+'-'+month+'-'+todayDate;
+    </script>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+		  <a class="navbar-brand" href="#">CarShare</a>
+		  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		  </button>
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav d-flex ms-auto mb-2 mb-lg-1">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="home">Home</a>
+				  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="#">FeedBack</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="vehicleDetails">Add Vehicle</a>
+			  </li>
+			  <li class="nav-item">
+				<a class="nav-link active" aria-current="page" href="#">Upcoming Trips</a>
+			  </li>
+	  
+			  <li class="nav-item">
+				<a type="button" class="btn btn-outline-danger" href="index">Logout</a>
+			  </li>
+			</ul>
+		  </div>
+		</div>
+	  </nav>
+
+	<h1 class="text-center">My Trip Route</h1>
+
+		<div class="container px-0">
+  			<div class="row gx-0">
+    			<div class="col">
+					<div class= "box col-lg-8 col-md-6 col-sm-10">
+                    <form method='POST' action="otrip">{% csrf_token %}
+						<p>Select location:</p>
+						<select class="form-select" aria-label="Default select example" name="location">
+						<option selected>Choose location</option>
+						<option value="1">FROM CMRIT</option>
+						<option value="2">TO CMRIT</option>
+						
+						</select>
+						<br>
+						<div>
+							<p>Choose the date of the trip:</p>
+							<input type="date" name="date" id="date" class="form-control"/>
+							<br>
+							<!-- <form>
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">At what time?</label>
+									<input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+								</div>
+								<button type="button" class="btn btn-primary">Submit & Add Stops</button>
+							</form> -->
+							</div>
+							<br>
+							<h2>Add your Stops!</h2>
+							<p>Select the stops</p>
+							<select class="form-select" aria-label="Default select example" name="stops" >
+                                <option selected>Choose your stops</option>
+                                {%for location,id in val %}
+                                    
+                                    <option value={{id}}>{{location}}</option>
+
+                                {% endfor %}
+							</select>
+							
+								<div class="mb-3">
+									<label for="exampleInputEmail1" class="form-label" style="font-weight: bold;">At what time?</label>
+									<input type="time" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="time">
+								</div>
+							
+							<br>
+                            <input type="submit", value="submit">      
+                    </form>  
+					</div>
+		    	</div>
+			    <div class="col">
+				    <table class="table table-striped">
+					  <thead class="table-dark">
+					    <tr>
+					      
+					      <th scope="col">Location</th>
+					      <th scope="col">Time</th>
+					    </tr>
+					  </thead>
+					  <tbody>
+					    {%for m1,m2,m3 in auxi %}
+               
+                            <tr>
+                            
+                            <td>{{m2}}</td> 
+                            <td>{{m3}}</td>
+                            
+                            
+
+                            
+                            </tr>
+                        {% endfor %}
+					  </tbody>
+					</table>
+			    </div>
+  			</div>
+  			<div class="d-grid gap-2 col-6 mx-auto">
+			  <a class="btn btn-primary" type="button" href="home">Finished</a>
+			</div>
+		</div>
+
+		
+
+
+	
+	
+	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<!-- arr=[
+    ["Hal",1],
+    ["Mahadevapura",2],
+    ["Hoodi",3],
+    ["Kadubeesanahalli",4],
+    ["Whitefield",5],
+    ["Marathahalli",6],
+    ["K.R Puram",7],
+    ["M.G Road",8]
+    ] -->
